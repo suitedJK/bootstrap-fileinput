@@ -1123,7 +1123,8 @@
                         sDwl = $h.ifSet('showDownload', config, $h.ifSet('showDownload', fs, initPreviewShowDwl)),
                         sZm = $h.ifSet('showZoom', config, $h.ifSet('showZoom', fs, true)),
                         sDrg = $h.ifSet('showDrag', config, $h.ifSet('showDrag', fs, true)),
-                        dis = (url === false) && isDisabled;
+                        dis = (url === false) && isDisabled,
+                        uTime = $h.ifSet('uploadedTime', config);
                     sDwl = sDwl && config.downloadUrl !== false && !!dUrl;
                     a = self._renderFileActions(false, sDwl, sDel, sZm, sDrg, dis, url, key, true, dUrl, dFil);
                     return self._getLayoutTemplate('footer').setTokens({
@@ -1132,7 +1133,8 @@
                         'caption': caption,
                         'size': self._getSize(size),
                         'width': width,
-                        'indicator': ''
+                        'indicator': '',
+                        'uploadedTime': uTime
                     });
                 }
             };
